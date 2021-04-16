@@ -1,14 +1,16 @@
-//Immutability
+//Immutability with array
 
-const person = { name: "kavinda", color: "red", add: { city: "colombo" } };
+const num = [0, 1, 2, 3];
 
-const updated1 = Object.assign({}, person, { name: "ravishan", age: 23 });
-updated1.add.city = "trinco";
-console.log(person);
+const index = num.indexOf(2);
+const newNum = [...num.slice(0, index), 4, ...num.slice(index)];
 
-const updated2 = { ...person, name: "a", age: 24, add: { ...person.add } };
-updated1.add.city = "colombo";
+console.log(newNum);
 
-console.log(person);
-console.log(updated1);
-console.log(updated2);
+//rm
+const rmTwo = num.filter((n) => n !== 2);
+console.log(rmTwo);
+
+//update
+const updateTwo = num.map((n) => (n === 2 ? 200 : n));
+console.log(updateTwo);
