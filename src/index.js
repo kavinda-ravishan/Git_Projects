@@ -1,10 +1,14 @@
-import { compose, pipe } from "lodash/fp";
+//Pure functions
+//same arg => same result
 
-//function composition
-const trim = (str) => str.trim();
-//const wrap = (type, str) => `<${type}>${str}</${type}>`;
-const wrap = (type) => (str) => `<${type}>${str}</${type}>`;
-const toLowerCase = (str) => str.toLowerCase();
+const { random } = require("lodash");
 
-const transform = pipe(toLowerCase, trim, wrap("span"));
-console.log(transform("  WoRlD   "));
+//not a pure function
+function rand(num) {
+  return num * Math.random();
+}
+
+//not a pure function
+function mul(num) {
+  return num * 2;
+}
