@@ -1,16 +1,16 @@
-//Immutability with array
+//Immutability lib
 
-const num = [0, 1, 2, 3];
+const { Map } = require("immutable");
 
-const index = num.indexOf(2);
-const newNum = [...num.slice(0, index), 4, ...num.slice(index)];
+let book = Map({ title: "harry potter" });
 
-console.log(newNum);
+console.log(book.get("title"));
+console.log(book.toJS());
 
-//rm
-const rmTwo = num.filter((n) => n !== 2);
-console.log(rmTwo);
+function publish(book) {
+  return book.set("isPublish", true);
+}
 
-//update
-const updateTwo = num.map((n) => (n === 2 ? 200 : n));
-console.log(updateTwo);
+book = publish(book);
+
+console.log(book.toJS());
