@@ -10,6 +10,7 @@ store.dispatch(actions.bugAdded("bug 1"));
 
 //bugRemoved not going to notify
 //unSubscribe();
+store.dispatch(actions.bugResolved(1));
 
 store.dispatch(actions.bugRemoved(1));
 
