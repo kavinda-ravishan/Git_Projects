@@ -1,16 +1,16 @@
 //Immutability lib
 
-const { Map } = require("immutable");
+const { produce } = require("immer");
 
-let book = Map({ title: "harry potter" });
-
-console.log(book.get("title"));
-console.log(book.toJS());
+let book = { title: "harry potter" };
 
 function publish(book) {
-  return book.set("isPublish", true);
+  return produce(book, (draftBook) => {
+    draftBook.isPublish = true;
+  });
 }
 
-book = publish(book);
+let updatedBook = publish(book);
 
-console.log(book.toJS());
+console.log(book);
+console.log(updatedBook);
