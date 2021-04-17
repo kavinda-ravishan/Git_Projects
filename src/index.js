@@ -1,6 +1,6 @@
 import store from "./store";
 
-store.subscribe(() => {
+const unSubscribe = store.subscribe(() => {
   console.log("store changed!", store.getState());
 });
 
@@ -11,24 +11,13 @@ store.dispatch({
   },
 });
 
-store.dispatch({
-  type: "bugAdded",
-  payload: {
-    description: "Bug 2",
-  },
-});
-
-store.dispatch({
-  type: "bugAdded",
-  payload: {
-    description: "Bug 3",
-  },
-});
+//bugRemoved not going to notify
+unSubscribe();
 
 store.dispatch({
   type: "bugRemoved",
   payload: {
-    id: 2,
+    id: 1,
   },
 });
 
